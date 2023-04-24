@@ -16,7 +16,7 @@ import {
 import Link from "next/link";
 
 //Todo: make theme statefull, to change current
-const navigation = [
+const navigationdata = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
   { name: "Users", href: "/users", icon: UsersIcon, current: false },
   { name: "Projects", href: "/projects", icon: FolderIcon, current: false },
@@ -44,6 +44,22 @@ function classNames(...classes) {
 
 export default function Dashboard({ children }: { children: ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const [navigation, setNavigation] = useState(navigationdata);
+
+  function updateCurrent(current: string) {
+    let newnav = navigation.map((item) => {
+      //find the last one and set it to false
+      if (item.current) item.current = false;
+
+      //change the current one to true
+      if (item.name === current) item.current = true;
+
+      return item;
+    });
+
+    setNavigation(newnav);
+  }
 
   return (
     <>
@@ -118,6 +134,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                             {navigation.map((item) => (
                               <li key={item.name}>
                                 <Link
+                                  onClick={() => updateCurrent(item.name)}
                                   href={item.href}
                                   className={classNames(
                                     item.current
@@ -188,30 +205,34 @@ export default function Dashboard({ children }: { children: ReactNode }) {
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
-                    {navigation.map((item) => (
-                      <li key={item.name}>
-                        <Link
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? "bg-gray-800 text-white"
-                              : "text-gray-400 hover:bg-gray-800 hover:text-white",
-                            "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
-                          )}
-                        >
-                          <item.icon
-                            className="h-6 w-6 shrink-0"
-                            aria-hidden="true"
-                          />
-                          {item.name}
-                        </Link>
-                      </li>
-                    ))}
+                    {navigation.map((item) => {
+                      // console.log(item.href);
+                      return (
+                        <li key={item.name}>
+                          <Link
+                            onClick={() => updateCurrent(item.name)}
+                            href={item.href}
+                            className={classNames(
+                              item.current
+                                ? "bg-gray-800 text-white"
+                                : "text-gray-400 hover:bg-gray-800 hover:text-white",
+                              "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+                            )}
+                          >
+                            <item.icon
+                              className="h-6 w-6 shrink-0"
+                              aria-hidden="true"
+                            />
+                            {item.name}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </li>
                 <li>
                   <div className="text-xs font-semibold leading-6 text-gray-400">
-                    Your teams
+                    Your Projects
                   </div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {projects.map((team) => (
