@@ -13,11 +13,12 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 //Todo: make theme statefull, to change current
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
-  { name: "Team", href: "/team", icon: UsersIcon, current: false },
+  { name: "Users", href: "/users", icon: UsersIcon, current: false },
   { name: "Projects", href: "/projects", icon: FolderIcon, current: false },
   {
     name: "Profiles",
@@ -28,10 +29,12 @@ const navigation = [
   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
   { name: "Stats", href: "/stats", icon: ChartPieIcon, current: false },
 ];
-const teams = [
-  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+
+//TODO: Replace it with Real Data
+const projects = [
+  { id: 1, name: "PX Auth Service", href: "#", initial: "X", current: false },
+  { id: 2, name: "PY UI", href: "#", initial: "Y", current: false },
+  { id: 3, name: "CI Fix PZ", href: "#", initial: "Z", current: false },
 ];
 
 //@ts-ignore
@@ -103,9 +106,9 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                       <Image
                         className=""
                         src="https://www.itserv.tn/wp-content/uploads/2018/12/logo-min.png"
-                        alt="Your Company"
+                        alt="IT Serv"
                         height={32}
-                        width={95}
+                        width={32}
                       />
                     </div>
                     <nav className="flex flex-1 flex-col">
@@ -114,7 +117,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                           <ul role="list" className="-mx-2 space-y-1">
                             {navigation.map((item) => (
                               <li key={item.name}>
-                                <a
+                                <Link
                                   href={item.href}
                                   className={classNames(
                                     item.current
@@ -128,19 +131,19 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                                     aria-hidden="true"
                                   />
                                   {item.name}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
                         </li>
                         <li>
                           <div className="text-xs font-semibold leading-6 text-gray-400">
-                            Your teams
+                            Your Projects
                           </div>
                           <ul role="list" className="-mx-2 mt-2 space-y-1">
-                            {teams.map((team) => (
+                            {projects.map((team) => (
                               <li key={team.name}>
-                                <a
+                                <Link
                                   href={team.href}
                                   className={classNames(
                                     team.current
@@ -153,7 +156,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                                     {team.initial}
                                   </span>
                                   <span className="truncate">{team.name}</span>
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -166,6 +169,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             </div>
           </Dialog>
         </Transition.Root>
+
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
@@ -176,8 +180,8 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                 src="https://www.itserv.tn/wp-content/uploads/2018/12/logo-min.png"
                 alt="Your Company"
                 priority={true}
-                height={80}
-                width={80}
+                height={32}
+                width={32}
               />
             </div>
             <nav className="flex flex-1 flex-col">
@@ -186,7 +190,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                   <ul role="list" className="-mx-2 space-y-1">
                     {navigation.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className={classNames(
                             item.current
@@ -200,7 +204,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -210,9 +214,9 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                     Your teams
                   </div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
-                    {teams.map((team) => (
+                    {projects.map((team) => (
                       <li key={team.name}>
-                        <a
+                        <Link
                           href={team.href}
                           className={classNames(
                             team.current
@@ -225,13 +229,13 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                             {team.initial}
                           </span>
                           <span className="truncate">{team.name}</span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </li>
                 <li className="-mx-6 mt-auto">
-                  <a
+                  <Link
                     href="#"
                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
                   >
@@ -244,12 +248,13 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                     />
                     <span className="sr-only">Votre Profile</span>
                     <span aria-hidden="true">Dali Khaled</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
           </div>
         </div>
+
         <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
           <button
             type="button"
@@ -262,7 +267,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
           <div className="flex-1 text-sm font-semibold leading-6 text-white">
             Dashboard
           </div>
-          <a href="#">
+          <Link href="#">
             <span className="sr-only">Your profile</span>
             <Image
               className="rounded-full bg-gray-800"
@@ -271,8 +276,9 @@ export default function Dashboard({ children }: { children: ReactNode }) {
               width={32}
               height={32}
             />
-          </a>
+          </Link>
         </div>
+
         <main className="lg:pl-72 ">
           {children}
           {/* <div className="px-4 dark:bg-[#121212] sm:px-6 lg:px-8">
