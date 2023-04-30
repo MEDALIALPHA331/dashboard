@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "name": "dali",
+    "email": "dali@gmail.com",
+    "password": "hashedsaltedpassword",
+    "created_at": "21-7-2021",
+    "updated_at": "12-11-2022",
+
+    "formations": [
+      {
+        "nom_formation": "GoMyCode",
+        "domaine": "devOps"
+      },
+      {
+        "nom_formation": "NMTC",
+        "domaine": "blockchain dev"
+      }
+    ],
+    "experience_proffessionel": [
+      {
+        "position": "jr react dev",
+        "année": 1,
+        "société": "IT Serv"
+      },
+      {
+        "position": "senior .NET dev",
+        "année": 4,
+        "société": "IT Serv"
+      }
+    ],
+    "diplome": [
+      {
+        "nom_diplome": "science informatique",
+        "ecole": "isims",
+        "date_de_début": "15-09-2020",
+        "date_de_fin": "3-06-2023",
+        "période": 3
+      }
+    ],
+    "projets": [
+      {
+        "nom_projet": "application ecommerce pour x",
+        "technologies_utilisé": [".net", "react", "git"],
+        "periode_semaine": 6,
+        "team": "dev"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "hashedpassword",
+    "created_at": "01-01-2022",
+    "updated_at": "02-02-2022",
+    "image_url": "https://example.com/avatar.jpg",
+    "formations": [
+      {
+        "nom_formation": "Codecademy",
+        "domaine": "Web Development"
+      },
+      {
+        "nom_formation": "Udemy",
+        "domaine": "Data Science"
+      }
+    ],
+    "experience_proffessionel": [
+      {
+        "position": "Software Engineer",
+        "année": 3,
+        "société": "Acme Inc."
+      },
+      {
+        "position": "Data Analyst",
+        "année": 2,
+        "société": "XYZ Corp"
+      }
+    ],
+    "diplome": [
+      {
+        "nom_diplome": "Computer Science",
+        "ecole": "Harvard University",
+        "date_de_début": "01-09-2015",
+        "date_de_fin": "31-08-2019",
+        "période": 4
+      }
+    ],
+    "projets": [
+      {
+        "nom_projet": "Social Media Platform",
+        "technologies_utilisé": ["Python", "Django", "React", "PostgreSQL"],
+        "periode_semaine": 12,
+        "team": "dev"
+      }
+    ]
+  }
+]
