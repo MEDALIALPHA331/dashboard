@@ -54,7 +54,104 @@
     "password": "hashedpassword",
     "created_at": "01-01-2022",
     "updated_at": "02-02-2022",
-    "image_url": "https://example.com/avatar.jpg",
+    "image_url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "formations": [
+      {
+        "nom_formation": "Codecademy",
+        "domaine": "Web Development"
+      },
+      {
+        "nom_formation": "Udemy",
+        "domaine": "Data Science"
+      }
+    ],
+    "experience_proffessionel": [
+      {
+        "position": "Software Engineer",
+        "année": 3,
+        "société": "Acme Inc."
+      },
+      {
+        "position": "Data Analyst",
+        "année": 2,
+        "société": "XYZ Corp"
+      }
+    ],
+    "diplome": [
+      {
+        "nom_diplome": "Computer Science",
+        "ecole": "Harvard University",
+        "date_de_début": "01-09-2015",
+        "date_de_fin": "31-08-2019",
+        "période": 4
+      }
+    ],
+    "projets": [
+      {
+        "nom_projet": "Social Media Platform",
+        "technologies_utilisé": ["Python", "Django", "React", "PostgreSQL"],
+        "periode_semaine": 12,
+        "team": "dev"
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "name": "Rahma whaterver",
+    "email": "rahma@example.com",
+    "password": "hashedpassword",
+    "created_at": "01-01-2022",
+    "updated_at": "02-02-2022",
+    "image_url": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80",
+    "formations": [
+      {
+        "nom_formation": "Codecademy",
+        "domaine": "Web Development"
+      },
+      {
+        "nom_formation": "Udemy",
+        "domaine": "Data Science"
+      }
+    ],
+    "experience_proffessionel": [
+      {
+        "position": "Software Engineer",
+        "année": 3,
+        "société": "Acme Inc."
+      },
+      {
+        "position": "Data Analyst",
+        "année": 2,
+        "société": "XYZ Corp"
+      }
+    ],
+    "diplome": [
+      {
+        "nom_diplome": "Computer Science",
+        "ecole": "Harvard University",
+        "date_de_début": "01-09-2015",
+        "date_de_fin": "31-08-2019",
+        "période": 4
+      }
+    ],
+    "projets": [
+      {
+        "nom_projet": "Social Media Platform",
+        "technologies_utilisé": ["Python", "Django", "React", "PostgreSQL"],
+        "periode_semaine": 12,
+        "team": "dev"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Mourad ammami",
+    "email": "johndoe@example.com",
+    "password": "hashedpassword",
+    "created_at": "01-01-2022",
+    "updated_at": "02-02-2022",
+    "image_url": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
     "formations": [
       {
         "nom_formation": "Codecademy",
