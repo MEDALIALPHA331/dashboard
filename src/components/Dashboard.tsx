@@ -43,29 +43,44 @@ function classNames(...classes) {
 }
 
 export default function Dashboard({ children }: { children: ReactNode }) {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [navigation, setNavigation] = useState(navigationdata);
+  const [current, setCurrent] = useState(navigation[0].name);
 
+  //TODO: Fix initialFocus on Dialog: focus only on Desktop version
+  // let focusRef = useRef(null);
+
+  //? A Function to Update current route
   function updateCurrent(current: string) {
     let newnav = navigation.map((item) => {
-      //find the last one and set it to false
+      //? find the last one and set it to false
       if (item.current) item.current = false;
 
-      //change the current one to true
-      if (item.name === current) item.current = true;
+      //? change the current one to true
+      if (item.name === current) {
+        item.current = true;
+
+        //? To Update the section name in the Phone nav
+        setCurrent(current);
+      }
 
       return item;
     });
 
     setNavigation(newnav);
+
+    //? Close Sidebar after navigating to a new section/route
+    setSidebarOpen(false);
   }
 
   return (
     <>
       <div>
+        {/* Dialog for Phone View Side bar */}
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
+            // TODO: initialFocus={focusRef}
             as="div"
             className="relative z-50 lg:hidden"
             onClose={setSidebarOpen}
@@ -82,6 +97,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
               <div className="fixed inset-0 bg-gray-900/80" />
             </Transition.Child>
 
+            {/* Phone View Side bar */}
             <div className="fixed inset-0 flex">
               <Transition.Child
                 as={Fragment}
@@ -116,7 +132,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                       </button>
                     </div>
                   </Transition.Child>
-                  {/* Sidebar component, swap this element with another sidebar if you like */}
+
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-2 ring-1 ring-white/10">
                     <div className="flex h-16 shrink-0 items-center">
                       <Image
@@ -153,6 +169,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                             ))}
                           </ul>
                         </li>
+
                         <li>
                           <div className="text-xs font-semibold leading-6 text-gray-400">
                             Your Projects
@@ -189,7 +206,6 @@ export default function Dashboard({ children }: { children: ReactNode }) {
 
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-          {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6">
             <div className="flex h-16 shrink-0 items-center">
               <Image
@@ -206,7 +222,6 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                 <li>
                   <ul role="list" className="-mx-2 space-y-1">
                     {navigation.map((item) => {
-                      // console.log(item.href);
                       return (
                         <li key={item.name}>
                           <Link
@@ -276,6 +291,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
           </div>
         </div>
 
+        {/* Navigation For Phone */}
         <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
           <button
             type="button"
@@ -286,7 +302,8 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 text-sm font-semibold leading-6 text-white">
-            Dashboard
+            {/* TODO: Fix for Projects */}
+            {current}
           </div>
           <Link href="#">
             <span className="sr-only">Your profile</span>
@@ -300,6 +317,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
           </Link>
         </div>
 
+        {/* Main Content */}
         <main className="lg:pl-72 ">
           {children}
           {/* <div className="px-4 dark:bg-[#121212] sm:px-6 lg:px-8">
