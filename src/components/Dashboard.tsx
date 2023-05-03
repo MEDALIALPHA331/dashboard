@@ -272,7 +272,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
                 </li>
                 <li className="-mx-6 mt-auto">
                   <Link
-                    href="#"
+                    href="/"
                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
                   >
                     <Image
@@ -290,7 +290,6 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             </nav>
           </div>
         </div>
-
         {/* Navigation For Phone */}
         <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
           <button
@@ -316,7 +315,6 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             />
           </Link>
         </div>
-
         {/* Main Content */}
         <main className="lg:pl-72 ">
           {children}
