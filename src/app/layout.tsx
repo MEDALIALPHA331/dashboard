@@ -2,7 +2,6 @@ import Dashboard from "@/components/Dashboard";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import { Inter } from "next/font/google";
 
-import { ClerkProvider } from "@clerk/nextjs";
 import { ReactNode } from "react";
 import "./globals.css";
 
@@ -21,13 +20,13 @@ export default function RootLayout({
   let signedIn = true;
 
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`light ${inter.className}`}>
-          <Dashboard>{children}</Dashboard>
-        </body>
-      </html>
-    </ClerkProvider>
+    // <ClerkProvider>
+    <html lang="en">
+      <body className={`light ${inter.className}`}>
+        <Dashboard>{children}</Dashboard>
+      </body>
+    </html>
+    // </ClerkProvider>
   );
 }
 
