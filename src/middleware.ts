@@ -1,3 +1,7 @@
-export default function middleware() {
-  console.log("Middleware running");
-}
+import { authMiddleware } from "@clerk/nextjs";
+
+export default authMiddleware();
+
+export const config = {
+  matcher: ["/((?!.*\\..*|_next).*)", "/"],
+};

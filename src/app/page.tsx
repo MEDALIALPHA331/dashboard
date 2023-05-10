@@ -1,4 +1,5 @@
 "use client";
+import type { NextPage } from "next";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 
@@ -7,7 +8,7 @@ const poppins = Poppins({
   subsets: ["latin"],
 });
 
-export default function Home() {
+const Home: NextPage = () => {
   let user = {
     isLoggedIn: true,
     username: "Dali Khaled",
@@ -71,15 +72,14 @@ export default function Home() {
         </div>
       </div>
       <div className="h-full ">
-        <p>settings/appearance -dark/light
-user inforamtion:
-	role: director/employee/hr
-	auth-role: admin/user 
-	projects*
-	team*
-
-upload profile image</p>
+        <p>
+          settings/appearance -dark/light user inforamtion: role:
+          director/employee/hr auth-role: admin/user projects* team* upload
+          profile image
+        </p>
       </div>
     </main>
   );
-}
+};
+
+export default Home;
